@@ -21,8 +21,9 @@ function searchLocation() {
         .then(data => {
             console.log('API Response:', data);
 
-            if (data && "results" in data && data["results"].length > 0) {
-                const location = data["results"][0]["location"];
+            if (data && data.length > 0) {
+                const firstResult = data[0];
+                const location = firstResult["location"];
                 const latitude = location["lat"];
                 const longitude = location["lng"];
                 resultElement.textContent = `Location of ${city}: Latitude ${latitude}, Longitude ${longitude}`;
