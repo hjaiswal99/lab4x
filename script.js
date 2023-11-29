@@ -23,10 +23,14 @@ function searchLocation() {
 
             if (data && data.length > 0) {
                 const firstResult = data[0];
-                const location = firstResult.location;
-                const latitude = location.lat;
-                const longitude = location.lon;
-                resultElement.textContent = `Location of ${city}: Latitude ${latitude}, Longitude ${longitude}`;
+                if (firstResult.location && firstResult.location.lat && firstResult.location.lng) {
+                    const location = firstResult.location;
+                    const latitude = location.lat;
+                    const longitude = location.lng;
+                    resultElement.textContent = `Location of ${city}: Latitude ${latitude}, Longitude ${longitude}`;
+                } else {
+                    resultElement.textContent = 'Location information not available for the first result.';
+                }
             } else {
                 resultElement.textContent = 'Location not found.';
             }
