@@ -9,14 +9,19 @@ function searchLocation() {
         return;
     }
 
-    // Replace 'YOUR_API_KEY' with your actual API key
-    const api_key = "YOUR_API_KEY";
-    const apiUrl = `https://geocode.maps.co/search?city=${encodeURIComponent(city)}&key=${api_key}`;
+    const apiUrl = `https://geocode.maps.co/search?city=${encodeURIComponent(city)}`;
 
     fetch(apiUrl)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
-            if (data && "results" in data && data["results"]) {
+            console.log('API Response:', data);
+
+            if (data && "results" in data && data["results"].length > 0) {
                 const location = data["results"][0]["location"];
                 const latitude = location["lat"];
                 const longitude = location["lng"];
