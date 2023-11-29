@@ -1,20 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>City Search</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Sunrise Sunset Dashboard</title>
 </head>
 <body>
-    <div class="container">
-        <h1>City Search</h1>
-        <label for="cityInput">Enter City:</label>
-        <input type="text" id="cityInput" placeholder="e.g., Chicago">
-        <button onclick="searchLocation()">Search</button>
-        <p id="result"></p>
+  <div class="container">
+    <h1>Sunrise Sunset Dashboard</h1>
+    <div>
+      <label for="latitude">Latitude:</label>
+      <input type="text" id="latitude" placeholder="Enter latitude">
+    </div>
+    <div>
+      <label for="longitude">Longitude:</label>
+      <input type="text" id="longitude" placeholder="Enter longitude">
+    </div>
+    <button onclick="getSunriseSunset()">Get Sunrise Sunset</button>
+    <button onclick="getCurrentLocation()">Use Current Location</button>
+    <div>
+      <label for="locationQuery">Search Location:</label>
+      <input type="text" id="locationQuery" placeholder="Enter location">
+      <button onclick="searchLocation()">Search</button>
+    </div>
+    <div id="result"></div>
+
+    <!-- Weather condition icons with updated paths -->
+    <div class="weather-condition">
+      <img class="weather-icon" src="img/sunset.256x214.png" alt="Sunset Icon 1">
+      <p>Sunset: 8:23 PM</p>
     </div>
 
-    <script src="script.js"></script>
+    <div class="weather-condition">
+      <img class="weather-icon" src="img/sunset.256x185.png" alt="Sunset Icon 2">
+      <p>Sunset: 8:23 PM</p>
+    </div>
+
+    <!-- Weather image with updated path -->
+    <img class="weather-image" src="img/weather-image.png" alt="Weather Image">
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
