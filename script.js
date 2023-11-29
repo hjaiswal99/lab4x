@@ -23,9 +23,9 @@ function searchLocation() {
 
             if (data && data.length > 0) {
                 const firstResult = data[0];
-                const location = firstResult["location"];
-                const latitude = location["lat"];
-                const longitude = location["lng"];
+                const location = firstResult.location;
+                const latitude = location.lat;
+                const longitude = location.lng;
                 resultElement.textContent = `Location of ${city}: Latitude ${latitude}, Longitude ${longitude}`;
             } else {
                 resultElement.textContent = 'Location not found.';
